@@ -11,11 +11,11 @@ export const CetakWifi = forwardRef<HTMLDivElement, Props>(({ data }, ref) => {
   };
 
   return (
-    <div ref={ref} className="bg-[#ffffff] p-8 font-sans w-[860px] h-[660px] mx-auto text-[#000000] flex flex-col">
+    <div ref={ref} className="bg-[#ffffff] p-6 font-sans w-[860px] h-[660px] mx-auto text-[#000000] flex flex-col">
       {/* Header */}
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex justify-between items-center mb-4">
         {/* Logo WiFi - Simpan gambar dengan nama 'wifi-logo.png' di folder 'public' */}
-        <img src="/wifi-logo.png" alt="Logo Fastama" className="h-24 object-contain" />
+        <img src="/wifi-logo.png" alt="Logo Fastama" className="h-20 object-contain" />
         <div className="text-center">
           <h1 className="text-2xl font-bold tracking-wide">PT.FIQRAN SOLUSINDO MEDIATAMA</h1>
           <p className="text-lg font-semibold mt-1">IT Support ,Service and Network solution</p>
@@ -23,12 +23,12 @@ export const CetakWifi = forwardRef<HTMLDivElement, Props>(({ data }, ref) => {
       </div>
 
       {/* Title */}
-      <div className="border border-[#000000] py-2 mb-6 text-center">
+      <div className="border border-[#000000] py-1 mb-4 text-center">
         <h2 className="text-xl font-bold tracking-wide">TANDA BUKTI PEMBAYARAN</h2>
       </div>
 
       {/* Content */}
-      <div className="space-y-5 text-lg font-bold mb-4 flex-1">
+      <div className="space-y-3 text-lg font-bold mb-2 flex-1">
         <div className="flex">
           <div className="w-64">No</div>
           <div className="w-4">:</div>
@@ -52,10 +52,10 @@ export const CetakWifi = forwardRef<HTMLDivElement, Props>(({ data }, ref) => {
       </div>
 
       {/* Footer / Signature */}
-      <div className="flex justify-end mb-4">
+      <div className="flex justify-end mb-2">
         <div className="text-center w-72">
-          <p className="text-lg font-bold mb-2">{data.tempatTanggal}</p>
-          <div className="h-28 flex items-center justify-center my-2">
+          <p className="text-lg font-bold mb-1">{data.tempatTanggal}</p>
+          <div className="h-24 flex items-center justify-center my-1">
             {/* Cap/Tanda Tangan - Simpan gambar dengan nama 'wifi-stamp.png' di folder 'public' */}
             <img src="/wifi-stamp.png" alt="Cap Tanda Tangan" className="h-20 object-contain" />
           </div>
@@ -64,7 +64,7 @@ export const CetakWifi = forwardRef<HTMLDivElement, Props>(({ data }, ref) => {
       </div>
 
       {/* Amount Box */}
-      <div className="border border-[#000000] py-3 px-4 mt-auto">
+      <div className="border border-[#000000] py-2 px-4 mt-auto">
         <p className="text-2xl font-bold">{formatRupiah(data.nominal).replace('Rp', 'Rp ')}</p>
       </div>
     </div>
