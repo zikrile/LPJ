@@ -13,10 +13,10 @@ export const CetakHonorarium = forwardRef<HTMLDivElement, Props>(({ data }, ref)
   };
 
   return (
-    <div ref={ref} className="p-8 bg-[#ffffff] text-[#000000] w-full max-w-[1000px] mx-auto text-sm" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
+    <div ref={ref} className="bg-[#ffffff] text-[#000000] w-[300mm] mx-auto text-[11pt]" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
       <div className="text-center font-bold mb-6">
-        <h1 className="text-base uppercase">DAFTAR PENERIMAAN HONORARIUM TENAGA ADMINISTRASI SEKOLAH</h1>
-        <h2 className="text-base">BULAN {data.bulan}</h2>
+        <h1 className="text-[11pt] uppercase">DAFTAR PENERIMAAN HONORARIUM TENAGA ADMINISTRASI SEKOLAH</h1>
+        <h2 className="text-[11pt]">BULAN {data.bulan}</h2>
       </div>
 
       <div className="flex justify-between mb-4">
@@ -60,7 +60,7 @@ export const CetakHonorarium = forwardRef<HTMLDivElement, Props>(({ data }, ref)
         </table>
       </div>
 
-      <table className="w-full border-collapse border border-[#000000] mb-8">
+      <table className="w-full border-collapse border border-[#000000] mb-8 text-[10pt]">
         <thead>
           <tr className="text-center">
             <th className="border border-[#000000] p-2 font-normal w-10">No</th>

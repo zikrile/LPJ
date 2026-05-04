@@ -91,10 +91,12 @@ export default function App() {
           format: [330, 215]
         });
         
-        const pdfWidth = pdf.internal.pageSize.getWidth();
+        // No scaling: we use the 300mm width of the content (matches F4 minus margins)
+        const pdfWidth = 300;
         const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
         
-        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        // Horizontally centered: (330 - 300) / 2 = 15mm from left. Top margin = 10mm
+        pdf.addImage(imgData, 'PNG', 15, 10, pdfWidth, pdfHeight);
         pdf.save(`Honorarium_${honorData.bulan.replace(/\s+/g, '_')}.pdf`);
       } else if (mode === 'pulsa') {
         // Pulsa receipt size
@@ -494,7 +496,7 @@ export default function App() {
             {`
               @page { 
                 size: ${mode === 'honorarium' ? '330mm 215mm' : mode === 'wifi' ? '215mm 165mm' : 'auto'}; 
-                margin: ${mode === 'honorarium' ? '10mm' : '0mm'}; 
+                margin: ${mode === 'honorarium' ? '10mm 15mm' : '0mm'}; 
               }
               body { -webkit-print-color-adjust: exact; print-color-adjust: exact; background-color: white; }
             `}
