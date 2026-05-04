@@ -13,7 +13,7 @@ export const CetakHonorarium = forwardRef<HTMLDivElement, Props>(({ data }, ref)
   };
 
   return (
-    <div ref={ref} className="bg-[#ffffff] text-[#000000] w-[300mm] mx-auto text-[11pt]" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
+    <div ref={ref} className="bg-[#ffffff] p-8 text-[#000000] w-[300mm] mx-auto text-[11pt]" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
       <div className="text-center font-bold mb-6">
         <h1 className="text-[11pt] uppercase">DAFTAR PENERIMAAN HONORARIUM TENAGA ADMINISTRASI SEKOLAH</h1>
         <h2 className="text-[11pt]">BULAN {data.bulan}</h2>
@@ -63,15 +63,16 @@ export const CetakHonorarium = forwardRef<HTMLDivElement, Props>(({ data }, ref)
       <table className="w-full border-collapse border border-[#000000] mb-8 text-[10pt]">
         <thead>
           <tr className="text-center">
-            <th className="border border-[#000000] p-2 font-normal w-10">No</th>
-            <th className="border border-[#000000] p-2 font-normal w-24">No. Bukti</th>
-            <th className="border border-[#000000] p-2 font-normal">Nama Pegawai</th>
+            <th className="border border-[#000000] p-2 font-normal w-8">No</th>
+            <th className="border border-[#000000] p-2 font-normal w-16">No. Bukti</th>
+            <th className="border border-[#000000] p-2 font-normal w-[22%]">Nama Pegawai</th>
             <th className="border border-[#000000] p-2 font-normal w-20">Jabatan</th>
-            <th className="border border-[#000000] p-2 font-normal w-20">Golongan</th>
-            <th className="border border-[#000000] p-2 font-normal w-20">Frekwensi</th>
-            <th className="border border-[#000000] p-2 font-normal w-32">Satuan (Rp)</th>
-            <th className="border border-[#000000] p-2 font-normal w-32">Diterima</th>
-            <th className="border border-[#000000] p-2 font-normal w-32">Tanda Tangan</th>
+            <th className="border border-[#000000] p-2 font-normal w-16">Golongan</th>
+            <th className="border border-[#000000] p-2 font-normal w-16">Frekwensi</th>
+            <th className="border border-[#000000] p-2 font-normal w-[11%]">Satuan (Rp)</th>
+            <th className="border border-[#000000] p-2 font-normal w-[11%]">Jumlah (Rp)</th>
+            <th className="border border-[#000000] p-2 font-normal w-[11%]">Diterima</th>
+            <th className="border border-[#000000] p-2 font-normal w-[14%]">Tanda Tangan</th>
           </tr>
         </thead>
         <tbody>
@@ -97,6 +98,12 @@ export const CetakHonorarium = forwardRef<HTMLDivElement, Props>(({ data }, ref)
                     <span>{formatRupiah(jumlah).replace('Rp', '').trim()}</span>
                   </div>
                 </td>
+                <td className="border border-[#000000] p-1">
+                  <div className="flex justify-between px-1">
+                    <span>Rp</span>
+                    <span>{formatRupiah(jumlah).replace('Rp', '').trim()}</span>
+                  </div>
+                </td>
                 <td className="border border-[#000000] p-1 text-left relative">
                 </td>
               </tr>
@@ -105,6 +112,7 @@ export const CetakHonorarium = forwardRef<HTMLDivElement, Props>(({ data }, ref)
 
           <tr className="font-bold text-center h-8">
             <td colSpan={7} className="border border-[#000000] p-1 uppercase">JUMLAH</td>
+            <td className="border border-[#000000] p-1"></td>
             <td colSpan={2} className="border border-[#000000] p-1">
               <div className="flex justify-between px-1">
                 <span>Rp</span>

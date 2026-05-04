@@ -199,6 +199,22 @@ export default function App() {
     }));
   };
 
+  const generateRandomNumber = (length: number) => {
+    let result = '';
+    for (let i = 0; i < length; i++) {
+      result += Math.floor(Math.random() * 10);
+    }
+    return result;
+  };
+
+  const handleGeneratePesanan = () => {
+    setPulsaData(prev => ({ ...prev, noPesanan: generateRandomNumber(19) }));
+  };
+
+  const handleGenerateSerial = () => {
+    setPulsaData(prev => ({ ...prev, noSerial: `0408050000${generateRandomNumber(10)}` }));
+  };
+
   return (
     <div className="flex h-screen bg-gray-50 overflow-hidden font-sans print:h-auto print:bg-white">
       {/* Left Panel: Form Input */}
@@ -383,7 +399,10 @@ export default function App() {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-gray-500 mb-1">No. Pesanan</label>
+                  <div className="flex justify-between items-center mb-1">
+                    <label className="block text-xs font-medium text-gray-500">No. Pesanan</label>
+                    <button onClick={handleGeneratePesanan} className="text-[10px] bg-orange-100 text-orange-700 px-2 py-0.5 rounded hover:bg-orange-200 transition-colors">Acak Angka</button>
+                  </div>
                   <input type="text" value={pulsaData.noPesanan} onChange={e => setPulsaData({...pulsaData, noPesanan: e.target.value})} className="w-full p-2 border rounded text-sm focus:ring-2 focus:ring-orange-500 outline-none" />
                 </div>
                 <div>
@@ -399,7 +418,10 @@ export default function App() {
                   <input type="text" value={pulsaData.noHandphone} onChange={e => setPulsaData({...pulsaData, noHandphone: e.target.value})} className="w-full p-2 border rounded text-sm focus:ring-2 focus:ring-orange-500 outline-none" />
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-gray-500 mb-1">No. Serial</label>
+                  <div className="flex justify-between items-center mb-1">
+                    <label className="block text-xs font-medium text-gray-500">No. Serial</label>
+                    <button onClick={handleGenerateSerial} className="text-[10px] bg-orange-100 text-orange-700 px-2 py-0.5 rounded hover:bg-orange-200 transition-colors">Acak Angka</button>
+                  </div>
                   <input type="text" value={pulsaData.noSerial} onChange={e => setPulsaData({...pulsaData, noSerial: e.target.value})} className="w-full p-2 border rounded text-sm focus:ring-2 focus:ring-orange-500 outline-none" />
                 </div>
                 <div>
@@ -488,9 +510,9 @@ export default function App() {
       </div>
 
       {/* Right Panel: Live Preview */}
-      <div className="w-2/3 bg-gray-200 p-8 overflow-y-auto flex justify-center items-start print:w-full print:p-0 print:bg-white print:overflow-visible">
+      <div className="w-2/3 bg-gray-200 p-8 overflow-auto print:w-full print:p-0 print:bg-white print:overflow-visible">
         {/* The wrapper div that will be printed */}
-        <div className="print-container w-full flex justify-center">
+        <div className="print-container min-w-max w-full">
           {/* Print-specific styles to ensure background colors and borders print correctly */}
           <style type="text/css" media="print">
             {`
@@ -502,7 +524,7 @@ export default function App() {
             `}
           </style>
           
-          <div className="shadow-2xl bg-white print:shadow-none">
+          <div className="shadow-2xl bg-white print:shadow-none w-max mx-auto">
             <div ref={pdfRef} className="bg-[#ffffff]">
               {mode === 'honorarium' ? (
                 <CetakHonorarium data={honorData} />
