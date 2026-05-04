@@ -84,11 +84,11 @@ export default function App() {
       let pdf: jsPDF;
       
       if (mode === 'honorarium') {
-        // F4 size in mm: 215 x 330
+        // F4 size in mm: 330 x 215 (Landscape)
         pdf = new jsPDF({
-          orientation: 'portrait',
+          orientation: 'landscape',
           unit: 'mm',
-          format: [215, 330]
+          format: [330, 215]
         });
         
         const pdfWidth = pdf.internal.pageSize.getWidth();
@@ -493,7 +493,7 @@ export default function App() {
           <style type="text/css" media="print">
             {`
               @page { 
-                size: ${mode === 'honorarium' ? '215mm 330mm' : mode === 'wifi' ? '215mm 165mm' : 'auto'}; 
+                size: ${mode === 'honorarium' ? '330mm 215mm' : mode === 'wifi' ? '215mm 165mm' : 'auto'}; 
                 margin: ${mode === 'honorarium' ? '10mm' : '0mm'}; 
               }
               body { -webkit-print-color-adjust: exact; print-color-adjust: exact; background-color: white; }
